@@ -1,0 +1,2175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>7³×7 Consciousness Scanner | Complete 343-Aspect Assessment</title>
+    <meta name="description" content="The most comprehensive consciousness assessment available. Measure all 343 aspects across 7 dimensions of human potential.">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Raleway:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    
+    <!-- jsPDF for PDF generation -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    
+    <!-- Chart.js for visualizations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+    
+    <style>
+        :root {
+            --bg-primary: #0a0a12;
+            --bg-secondary: #12121f;
+            --bg-tertiary: #1a1a2e;
+            --gold: #f1c40f;
+            --gold-dim: #b8960b;
+            --purple: #9b59b6;
+            --purple-dim: #7d3c98;
+            --text-primary: #ffffff;
+            --text-secondary: #b8b8c8;
+            --text-muted: #6c6c7c;
+            --accent-red: #e74c3c;
+            --accent-green: #2ecc71;
+            --accent-blue: #3498db;
+            --accent-orange: #e67e22;
+            --accent-teal: #1abc9c;
+            --accent-pink: #e91e63;
+            --accent-indigo: #5c6bc0;
+            
+            /* C-Level Colors */
+            --c1-color: #e74c3c;
+            --c2-color: #e67e22;
+            --c3-color: #f1c40f;
+            --c4-color: #2ecc71;
+            --c5-color: #3498db;
+            --c6-color: #9b59b6;
+            --c7-color: #ffffff;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Raleway', sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            min-height: 100vh;
+            line-height: 1.6;
+        }
+        
+        /* Animated Background */
+        .bg-animation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+        
+        .bg-animation::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: 
+                radial-gradient(ellipse at 20% 80%, rgba(155, 89, 182, 0.08) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 20%, rgba(241, 196, 15, 0.06) 0%, transparent 50%),
+                radial-gradient(ellipse at 50% 50%, rgba(52, 152, 219, 0.04) 0%, transparent 70%);
+            animation: bgPulse 20s ease-in-out infinite;
+        }
+        
+        @keyframes bgPulse {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            33% { transform: translate(-2%, -2%) rotate(1deg); }
+            66% { transform: translate(2%, 2%) rotate(-1deg); }
+        }
+        
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-tertiary) 100%);
+            border-bottom: 1px solid rgba(241, 196, 15, 0.2);
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+        }
+        
+        .header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        
+        .logo {
+            font-family: 'Cinzel', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--gold);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--gold) 0%, var(--purple) 100%);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+        }
+        
+        .header-stats {
+            display: flex;
+            gap: 2rem;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.85rem;
+        }
+        
+        .header-stat {
+            text-align: center;
+        }
+        
+        .header-stat-value {
+            color: var(--gold);
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+        
+        .header-stat-label {
+            color: var(--text-muted);
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        /* Main Container */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        /* Welcome Screen */
+        .welcome-screen {
+            text-align: center;
+            padding: 4rem 2rem;
+        }
+        
+        .welcome-title {
+            font-family: 'Cinzel', serif;
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(135deg, var(--gold) 0%, var(--purple) 50%, var(--gold) 100%);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: shimmer 3s linear infinite;
+        }
+        
+        @keyframes shimmer {
+            0% { background-position: 0% center; }
+            100% { background-position: 200% center; }
+        }
+        
+        .welcome-subtitle {
+            font-size: 1.3rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+        }
+        
+        .welcome-formula {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 2rem;
+            color: var(--gold);
+            margin: 2rem 0;
+            padding: 1.5rem;
+            background: var(--bg-secondary);
+            border-radius: 12px;
+            border: 1px solid rgba(241, 196, 15, 0.3);
+            display: inline-block;
+        }
+        
+        .welcome-description {
+            max-width: 700px;
+            margin: 0 auto 3rem;
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+        }
+        
+        .welcome-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 3rem 0;
+        }
+        
+        .welcome-feature {
+            background: var(--bg-secondary);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.3s ease;
+        }
+        
+        .welcome-feature:hover {
+            border-color: rgba(241, 196, 15, 0.3);
+            transform: translateY(-3px);
+        }
+        
+        .feature-icon {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .feature-title {
+            font-weight: 600;
+            color: var(--gold);
+            margin-bottom: 0.3rem;
+        }
+        
+        .feature-desc {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+        
+        /* Time Estimate */
+        .time-estimate {
+            background: linear-gradient(135deg, rgba(241, 196, 15, 0.1) 0%, rgba(155, 89, 182, 0.1) 100%);
+            padding: 1.5rem 2rem;
+            border-radius: 12px;
+            margin: 2rem 0;
+            border: 1px solid rgba(241, 196, 15, 0.2);
+        }
+        
+        .time-estimate-title {
+            font-family: 'Cinzel', serif;
+            font-size: 1.2rem;
+            color: var(--gold);
+            margin-bottom: 0.5rem;
+        }
+        
+        .time-estimate-details {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+        }
+        
+        .time-detail {
+            text-align: center;
+        }
+        
+        .time-value {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 1.5rem;
+            color: var(--text-primary);
+        }
+        
+        .time-label {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+        
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 2rem;
+            font-family: 'Raleway', sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dim) 100%);
+            color: var(--bg-primary);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(241, 196, 15, 0.3);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: var(--gold);
+            border: 2px solid var(--gold);
+        }
+        
+        .btn-secondary:hover {
+            background: rgba(241, 196, 15, 0.1);
+        }
+        
+        .btn-small {
+            padding: 0.5rem 1rem;
+            font-size: 0.9rem;
+        }
+        
+        /* Progress Bar */
+        .progress-container {
+            background: var(--bg-secondary);
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        .progress-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+        
+        .progress-title {
+            font-family: 'Cinzel', serif;
+            font-size: 1.1rem;
+            color: var(--gold);
+        }
+        
+        .progress-stats {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+        
+        .progress-bar-bg {
+            height: 12px;
+            background: var(--bg-tertiary);
+            border-radius: 6px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .progress-bar-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--c1-color), var(--c2-color), var(--c3-color), var(--c4-color), var(--c5-color), var(--c6-color), var(--c7-color));
+            border-radius: 6px;
+            transition: width 0.5s ease;
+            position: relative;
+        }
+        
+        .progress-bar-fill::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            animation: progressShine 2s infinite;
+        }
+        
+        @keyframes progressShine {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+        
+        /* Section Navigation */
+        .section-nav {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        
+        .section-btn {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            border: 2px solid;
+            background: var(--bg-secondary);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        
+        .section-btn[data-level="1"] { border-color: var(--c1-color); color: var(--c1-color); }
+        .section-btn[data-level="2"] { border-color: var(--c2-color); color: var(--c2-color); }
+        .section-btn[data-level="3"] { border-color: var(--c3-color); color: var(--c3-color); }
+        .section-btn[data-level="4"] { border-color: var(--c4-color); color: var(--c4-color); }
+        .section-btn[data-level="5"] { border-color: var(--c5-color); color: var(--c5-color); }
+        .section-btn[data-level="6"] { border-color: var(--c6-color); color: var(--c6-color); }
+        .section-btn[data-level="7"] { border-color: var(--c7-color); color: var(--c7-color); }
+        
+        .section-btn.active {
+            transform: scale(1.1);
+            box-shadow: 0 0 20px currentColor;
+        }
+        
+        .section-btn[data-level="1"].active { background: var(--c1-color); color: white; }
+        .section-btn[data-level="2"].active { background: var(--c2-color); color: white; }
+        .section-btn[data-level="3"].active { background: var(--c3-color); color: var(--bg-primary); }
+        .section-btn[data-level="4"].active { background: var(--c4-color); color: white; }
+        .section-btn[data-level="5"].active { background: var(--c5-color); color: white; }
+        .section-btn[data-level="6"].active { background: var(--c6-color); color: white; }
+        .section-btn[data-level="7"].active { background: var(--c7-color); color: var(--bg-primary); }
+        
+        .section-btn.completed::after {
+            content: '✓';
+            position: absolute;
+            bottom: -5px;
+            right: -5px;
+            background: var(--accent-green);
+            color: white;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            font-size: 0.7rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .section-btn {
+            position: relative;
+        }
+        
+        /* Question Card */
+        .question-section {
+            display: none;
+        }
+        
+        .question-section.active {
+            display: block;
+        }
+        
+        .section-header {
+            text-align: center;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border-radius: 16px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .section-header[data-level="1"] { background: linear-gradient(135deg, rgba(231, 76, 60, 0.2) 0%, var(--bg-secondary) 100%); border: 1px solid rgba(231, 76, 60, 0.3); }
+        .section-header[data-level="2"] { background: linear-gradient(135deg, rgba(230, 126, 34, 0.2) 0%, var(--bg-secondary) 100%); border: 1px solid rgba(230, 126, 34, 0.3); }
+        .section-header[data-level="3"] { background: linear-gradient(135deg, rgba(241, 196, 15, 0.2) 0%, var(--bg-secondary) 100%); border: 1px solid rgba(241, 196, 15, 0.3); }
+        .section-header[data-level="4"] { background: linear-gradient(135deg, rgba(46, 204, 113, 0.2) 0%, var(--bg-secondary) 100%); border: 1px solid rgba(46, 204, 113, 0.3); }
+        .section-header[data-level="5"] { background: linear-gradient(135deg, rgba(52, 152, 219, 0.2) 0%, var(--bg-secondary) 100%); border: 1px solid rgba(52, 152, 219, 0.3); }
+        .section-header[data-level="6"] { background: linear-gradient(135deg, rgba(155, 89, 182, 0.2) 0%, var(--bg-secondary) 100%); border: 1px solid rgba(155, 89, 182, 0.3); }
+        .section-header[data-level="7"] { background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, var(--bg-secondary) 100%); border: 1px solid rgba(255, 255, 255, 0.3); }
+        
+        .section-level {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+        
+        .section-header[data-level="1"] .section-level { color: var(--c1-color); }
+        .section-header[data-level="2"] .section-level { color: var(--c2-color); }
+        .section-header[data-level="3"] .section-level { color: var(--c3-color); }
+        .section-header[data-level="4"] .section-level { color: var(--c4-color); }
+        .section-header[data-level="5"] .section-level { color: var(--c5-color); }
+        .section-header[data-level="6"] .section-level { color: var(--c6-color); }
+        .section-header[data-level="7"] .section-level { color: var(--c7-color); }
+        
+        .section-name {
+            font-family: 'Cinzel', serif;
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .section-description {
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .section-progress {
+            margin-top: 1rem;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+        
+        /* Questions Grid */
+        .questions-grid {
+            display: grid;
+            gap: 1rem;
+        }
+        
+        .question-card {
+            background: var(--bg-secondary);
+            border-radius: 12px;
+            padding: 1.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.3s ease;
+        }
+        
+        .question-card:hover {
+            border-color: rgba(241, 196, 15, 0.2);
+        }
+        
+        .question-card.answered {
+            border-color: var(--accent-green);
+            background: linear-gradient(135deg, rgba(46, 204, 113, 0.05) 0%, var(--bg-secondary) 100%);
+        }
+        
+        .question-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+        }
+        
+        .question-number {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            background: var(--bg-tertiary);
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+        }
+        
+        .question-dimension {
+            font-size: 0.75rem;
+            color: var(--gold);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .question-text {
+            font-size: 1.05rem;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+            line-height: 1.5;
+        }
+        
+        /* Rating Scale */
+        .rating-scale {
+            display: flex;
+            gap: 0.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .rating-option {
+            flex: 1;
+            min-width: 60px;
+            max-width: 100px;
+            padding: 0.75rem 0.5rem;
+            background: var(--bg-tertiary);
+            border: 2px solid transparent;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-align: center;
+        }
+        
+        .rating-option:hover {
+            border-color: var(--gold);
+            transform: translateY(-2px);
+        }
+        
+        .rating-option.selected {
+            background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dim) 100%);
+            color: var(--bg-primary);
+            border-color: var(--gold);
+        }
+        
+        .rating-value {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 1.2rem;
+            font-weight: 600;
+            display: block;
+        }
+        
+        .rating-label {
+            font-size: 0.7rem;
+            color: var(--text-muted);
+            margin-top: 0.25rem;
+        }
+        
+        .rating-option.selected .rating-label {
+            color: var(--bg-primary);
+        }
+        
+        /* Navigation Buttons */
+        .nav-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        /* Results Screen */
+        .results-screen {
+            display: none;
+        }
+        
+        .results-screen.active {
+            display: block;
+        }
+        
+        .results-header {
+            text-align: center;
+            padding: 3rem 2rem;
+            background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-tertiary) 100%);
+            border-radius: 16px;
+            margin-bottom: 2rem;
+            border: 1px solid rgba(241, 196, 15, 0.2);
+        }
+        
+        .results-title {
+            font-family: 'Cinzel', serif;
+            font-size: 2.5rem;
+            color: var(--gold);
+            margin-bottom: 1rem;
+        }
+        
+        .overall-score {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 4rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--gold) 0%, var(--purple) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .overall-label {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+        }
+        
+        /* Results Charts */
+        .results-charts {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .chart-container {
+            background: var(--bg-secondary);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        .chart-title {
+            font-family: 'Cinzel', serif;
+            font-size: 1.2rem;
+            color: var(--gold);
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+        
+        /* Level Breakdown */
+        .level-breakdown {
+            display: grid;
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+        
+        .level-result {
+            background: var(--bg-secondary);
+            padding: 1.5rem;
+            border-radius: 12px;
+            display: grid;
+            grid-template-columns: 80px 1fr auto;
+            gap: 1rem;
+            align-items: center;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        .level-badge {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+        
+        .level-result[data-level="1"] .level-badge { background: var(--c1-color); }
+        .level-result[data-level="2"] .level-badge { background: var(--c2-color); }
+        .level-result[data-level="3"] .level-badge { background: var(--c3-color); color: var(--bg-primary); }
+        .level-result[data-level="4"] .level-badge { background: var(--c4-color); }
+        .level-result[data-level="5"] .level-badge { background: var(--c5-color); }
+        .level-result[data-level="6"] .level-badge { background: var(--c6-color); }
+        .level-result[data-level="7"] .level-badge { background: var(--c7-color); color: var(--bg-primary); }
+        
+        .level-info h3 {
+            font-family: 'Cinzel', serif;
+            font-size: 1.1rem;
+            margin-bottom: 0.25rem;
+        }
+        
+        .level-info p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+        
+        .level-score {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 2rem;
+            font-weight: 600;
+        }
+        
+        .level-result[data-level="1"] .level-score { color: var(--c1-color); }
+        .level-result[data-level="2"] .level-score { color: var(--c2-color); }
+        .level-result[data-level="3"] .level-score { color: var(--c3-color); }
+        .level-result[data-level="4"] .level-score { color: var(--c4-color); }
+        .level-result[data-level="5"] .level-score { color: var(--c5-color); }
+        .level-result[data-level="6"] .level-score { color: var(--c6-color); }
+        .level-result[data-level="7"] .level-score { color: var(--c7-color); }
+        
+        /* PDF Button Section */
+        .pdf-section {
+            text-align: center;
+            padding: 2rem;
+            background: var(--bg-secondary);
+            border-radius: 12px;
+            margin-top: 2rem;
+            border: 1px solid rgba(241, 196, 15, 0.2);
+        }
+        
+        .pdf-title {
+            font-family: 'Cinzel', serif;
+            font-size: 1.5rem;
+            color: var(--gold);
+            margin-bottom: 1rem;
+        }
+        
+        .pdf-description {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+        }
+        
+        /* Save Progress Modal */
+        .save-indicator {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: var(--accent-green);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+        
+        .save-indicator.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Hidden sections */
+        .hidden {
+            display: none !important;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .welcome-title {
+                font-size: 2rem;
+            }
+            
+            .welcome-formula {
+                font-size: 1.3rem;
+                padding: 1rem;
+            }
+            
+            .header-stats {
+                display: none;
+            }
+            
+            .section-btn {
+                width: 40px;
+                height: 40px;
+                font-size: 0.7rem;
+            }
+            
+            .question-card {
+                padding: 1rem;
+            }
+            
+            .rating-scale {
+                gap: 0.3rem;
+            }
+            
+            .rating-option {
+                min-width: 50px;
+                padding: 0.5rem 0.25rem;
+            }
+            
+            .level-result {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            
+            .level-badge {
+                margin: 0 auto;
+            }
+        }
+        
+        /* Print Styles */
+        @media print {
+            .header, .nav-buttons, .pdf-section, .btn {
+                display: none;
+            }
+            
+            body {
+                background: white;
+                color: black;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-animation"></div>
+    
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <a href="https://sevencubedseven.com" class="logo">
+                <div class="logo-icon">7³</div>
+                <span>Consciousness Scanner</span>
+            </a>
+            <div class="header-stats" id="headerStats">
+                <div class="header-stat">
+                    <div class="header-stat-value" id="questionsAnswered">0</div>
+                    <div class="header-stat-label">Answered</div>
+                </div>
+                <div class="header-stat">
+                    <div class="header-stat-value" id="questionsRemaining">343</div>
+                    <div class="header-stat-label">Remaining</div>
+                </div>
+                <div class="header-stat">
+                    <div class="header-stat-value" id="estimatedTime">~45min</div>
+                    <div class="header-stat-label">Est. Time</div>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <main class="container">
+        <!-- Welcome Screen -->
+        <section class="welcome-screen" id="welcomeScreen">
+            <h1 class="welcome-title">7³×7 Consciousness Scanner</h1>
+            <p class="welcome-subtitle">The Most Comprehensive Assessment of Human Consciousness</p>
+            
+            <div class="welcome-formula">7³ = 343 Aspects Measured</div>
+            
+            <p class="welcome-description">
+                This revolutionary assessment measures your consciousness across all <strong>343 aspects</strong> 
+                of the 7³×7 architecture. Unlike superficial personality tests, this scanner evaluates every 
+                dimension of your being—from physical mastery to divine unity.
+            </p>
+            
+            <div class="welcome-features">
+                <div class="welcome-feature">
+                    <div class="feature-icon">🔬</div>
+                    <div class="feature-title">343 Questions</div>
+                    <div class="feature-desc">49 questions per consciousness level</div>
+                </div>
+                <div class="welcome-feature">
+                    <div class="feature-icon">📊</div>
+                    <div class="feature-title">7 C-Levels</div>
+                    <div class="feature-desc">Physical to Divine Unity</div>
+                </div>
+                <div class="welcome-feature">
+                    <div class="feature-icon">💾</div>
+                    <div class="feature-title">Auto-Save</div>
+                    <div class="feature-desc">Resume anytime</div>
+                </div>
+                <div class="welcome-feature">
+                    <div class="feature-icon">📄</div>
+                    <div class="feature-title">PDF Report</div>
+                    <div class="feature-desc">Detailed analysis</div>
+                </div>
+            </div>
+            
+            <div class="time-estimate">
+                <div class="time-estimate-title">⏱️ Time Investment</div>
+                <div class="time-estimate-details">
+                    <div class="time-detail">
+                        <div class="time-value">45-60</div>
+                        <div class="time-label">Minutes Total</div>
+                    </div>
+                    <div class="time-detail">
+                        <div class="time-value">7</div>
+                        <div class="time-label">Sections</div>
+                    </div>
+                    <div class="time-detail">
+                        <div class="time-value">~7</div>
+                        <div class="time-label">Min/Section</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-top: 2rem;">
+                <button class="btn btn-primary" onclick="startAssessment()">
+                    🚀 Begin Assessment
+                </button>
+                <button class="btn btn-secondary" onclick="resumeAssessment()" id="resumeBtn" style="display: none;">
+                    ⏯️ Resume Progress
+                </button>
+            </div>
+        </section>
+        
+        <!-- Assessment Screen -->
+        <section class="assessment-screen hidden" id="assessmentScreen">
+            <!-- Progress Container -->
+            <div class="progress-container">
+                <div class="progress-header">
+                    <div class="progress-title">Overall Progress</div>
+                    <div class="progress-stats">
+                        <span id="progressPercent">0%</span> Complete
+                    </div>
+                </div>
+                <div class="progress-bar-bg">
+                    <div class="progress-bar-fill" id="progressBar" style="width: 0%"></div>
+                </div>
+            </div>
+            
+            <!-- Section Navigation -->
+            <div class="section-nav" id="sectionNav">
+                <button class="section-btn active" data-level="1" onclick="goToSection(1)">C¹</button>
+                <button class="section-btn" data-level="2" onclick="goToSection(2)">C²</button>
+                <button class="section-btn" data-level="3" onclick="goToSection(3)">C³</button>
+                <button class="section-btn" data-level="4" onclick="goToSection(4)">C⁴</button>
+                <button class="section-btn" data-level="5" onclick="goToSection(5)">C⁵</button>
+                <button class="section-btn" data-level="6" onclick="goToSection(6)">C⁶</button>
+                <button class="section-btn" data-level="7" onclick="goToSection(7)">C⁷</button>
+            </div>
+            
+            <!-- Question Sections (will be generated by JS) -->
+            <div id="questionSections"></div>
+            
+            <!-- Navigation Buttons -->
+            <div class="nav-buttons">
+                <button class="btn btn-secondary" onclick="previousSection()" id="prevBtn">
+                    ← Previous Section
+                </button>
+                <button class="btn btn-primary" onclick="nextSection()" id="nextBtn">
+                    Next Section →
+                </button>
+            </div>
+        </section>
+        
+        <!-- Results Screen -->
+        <section class="results-screen" id="resultsScreen">
+            <div class="results-header">
+                <h2 class="results-title">Your Consciousness Profile</h2>
+                <div class="overall-score" id="overallScore">0%</div>
+                <div class="overall-label">Overall Consciousness Activation</div>
+            </div>
+            
+            <div class="results-charts">
+                <div class="chart-container">
+                    <div class="chart-title">C-Level Distribution</div>
+                    <canvas id="radarChart"></canvas>
+                </div>
+                <div class="chart-container">
+                    <div class="chart-title">Dimensional Balance</div>
+                    <canvas id="barChart"></canvas>
+                </div>
+            </div>
+            
+            <div class="level-breakdown" id="levelBreakdown">
+                <!-- Generated by JS -->
+            </div>
+            
+            <div class="pdf-section">
+                <div class="pdf-title">📄 Download Your Full Report</div>
+                <p class="pdf-description">
+                    Get a comprehensive PDF report with detailed analysis of all 343 aspects, 
+                    personalized recommendations, and your consciousness development roadmap.
+                </p>
+                <button class="btn btn-primary" onclick="generatePDF()">
+                    📥 Download PDF Report
+                </button>
+                <div style="margin-top: 1rem;">
+                    <button class="btn btn-secondary btn-small" onclick="retakeAssessment()">
+                        🔄 Retake Assessment
+                    </button>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Save Indicator -->
+    <div class="save-indicator" id="saveIndicator">
+        ✓ Progress Saved
+    </div>
+
+    <script>
+        // ============================================
+        // 7³×7 CONSCIOUSNESS SCANNER - FULL 343 QUESTIONS
+        // ============================================
+        
+        // Consciousness Level Definitions
+        const cLevels = {
+            1: {
+                name: "Physical Consciousness",
+                subtitle: "C¹ - Body & Material Reality",
+                description: "Your relationship with physical reality, body awareness, health, material resources, and survival instincts.",
+                color: "#e74c3c",
+                dimensions: [
+                    "Body Awareness",
+                    "Health Optimization",
+                    "Physical Energy",
+                    "Material Management",
+                    "Environmental Sensitivity",
+                    "Survival Intelligence",
+                    "Sensory Acuity"
+                ]
+            },
+            2: {
+                name: "Emotional Consciousness",
+                subtitle: "C² - Feelings & Energy Flow",
+                description: "Your emotional intelligence, energy management, feelings processing, and vibrational awareness.",
+                color: "#e67e22",
+                dimensions: [
+                    "Emotional Awareness",
+                    "Feeling Processing",
+                    "Energy Management",
+                    "Empathic Sensitivity",
+                    "Mood Regulation",
+                    "Passion Expression",
+                    "Vibrational Attunement"
+                ]
+            },
+            3: {
+                name: "Power Consciousness",
+                subtitle: "C³ - Will & Authority",
+                description: "Your personal power, willpower, decision-making ability, boundaries, and self-determination.",
+                color: "#f1c40f",
+                dimensions: [
+                    "Personal Power",
+                    "Decision Authority",
+                    "Boundary Strength",
+                    "Self-Discipline",
+                    "Confidence Manifestation",
+                    "Leadership Presence",
+                    "Will Activation"
+                ]
+            },
+            4: {
+                name: "Love Consciousness",
+                subtitle: "C⁴ - Heart & Connection",
+                description: "Your capacity for love, compassion, relationships, forgiveness, and unity with others.",
+                color: "#2ecc71",
+                dimensions: [
+                    "Unconditional Love",
+                    "Compassion Depth",
+                    "Relationship Mastery",
+                    "Forgiveness Capacity",
+                    "Heart Opening",
+                    "Service Orientation",
+                    "Unity Consciousness"
+                ]
+            },
+            5: {
+                name: "Expression Consciousness",
+                subtitle: "C⁵ - Creativity & Communication",
+                description: "Your creative expression, communication abilities, truth-telling, and artistic manifestation.",
+                color: "#3498db",
+                dimensions: [
+                    "Creative Flow",
+                    "Communication Clarity",
+                    "Truth Expression",
+                    "Artistic Manifestation",
+                    "Authentic Voice",
+                    "Innovation Capacity",
+                    "Teaching Ability"
+                ]
+            },
+            6: {
+                name: "Vision Consciousness",
+                subtitle: "C⁶ - Insight & Wisdom",
+                description: "Your intuitive wisdom, pattern recognition, strategic thinking, and prophetic insight.",
+                color: "#9b59b6",
+                dimensions: [
+                    "Intuitive Wisdom",
+                    "Pattern Recognition",
+                    "Strategic Vision",
+                    "Discernment Accuracy",
+                    "Future Sight",
+                    "Systems Understanding",
+                    "Prophetic Insight"
+                ]
+            },
+            7: {
+                name: "Unity Consciousness",
+                subtitle: "C⁷ - Divine Connection",
+                description: "Your connection to the divine, transcendence, purpose alignment, and cosmic consciousness.",
+                color: "#ffffff",
+                dimensions: [
+                    "Divine Connection",
+                    "Purpose Alignment",
+                    "Transcendence Experience",
+                    "Cosmic Awareness",
+                    "Surrender Depth",
+                    "Eternal Perspective",
+                    "Oneness Realization"
+                ]
+            }
+        };
+        
+        // Generate 343 questions (49 per level, 7 per dimension)
+        function generateQuestions() {
+            const questions = {};
+            
+            // Question templates for each dimension
+            const questionTemplates = {
+                1: { // C¹ Physical
+                    "Body Awareness": [
+                        "I am consistently aware of my body's signals and needs",
+                        "I notice subtle changes in my physical state throughout the day",
+                        "I can accurately identify where tension is held in my body",
+                        "I maintain conscious awareness of my posture and movement",
+                        "I can sense when my body needs rest versus activity",
+                        "I am attuned to my body's hunger and satiation signals",
+                        "I notice how different environments affect my physical state"
+                    ],
+                    "Health Optimization": [
+                        "I consistently make choices that support my physical health",
+                        "I understand the nutritional needs of my unique body",
+                        "I prioritize quality sleep and rest",
+                        "I engage in regular physical exercise or movement",
+                        "I proactively address health concerns before they become serious",
+                        "I maintain healthy habits even when life gets busy",
+                        "I continuously educate myself about optimal health practices"
+                    ],
+                    "Physical Energy": [
+                        "I have abundant physical energy throughout the day",
+                        "I know how to restore my physical energy when depleted",
+                        "I can sustain physical effort when needed",
+                        "I understand my body's natural energy rhythms",
+                        "I avoid habits that drain my physical vitality",
+                        "I feel physically strong and capable",
+                        "I can access reserves of energy in challenging situations"
+                    ],
+                    "Material Management": [
+                        "I manage my material resources responsibly",
+                        "I maintain an organized and functional living environment",
+                        "I make wise financial decisions",
+                        "I take good care of my possessions",
+                        "I can distinguish between needs and wants",
+                        "I create systems for managing physical tasks efficiently",
+                        "I maintain a healthy relationship with material possessions"
+                    ],
+                    "Environmental Sensitivity": [
+                        "I am sensitive to the energy of different environments",
+                        "I can feel how spaces affect my wellbeing",
+                        "I create environments that support my flourishing",
+                        "I notice environmental factors that impact my health",
+                        "I am aware of my impact on the physical environment",
+                        "I feel connected to nature and natural rhythms",
+                        "I can adapt to different physical environments effectively"
+                    ],
+                    "Survival Intelligence": [
+                        "I have strong practical survival skills",
+                        "I can handle physical emergencies calmly",
+                        "I maintain preparedness for unexpected situations",
+                        "I trust my instincts in dangerous situations",
+                        "I can provide for my basic needs independently",
+                        "I remain grounded during physical challenges",
+                        "I have confidence in my ability to survive difficulties"
+                    ],
+                    "Sensory Acuity": [
+                        "I have heightened awareness of my five senses",
+                        "I notice subtle details others often miss",
+                        "I appreciate sensory experiences fully",
+                        "I can focus my senses intentionally",
+                        "I use my senses to gather important information",
+                        "I experience pleasure through sensory awareness",
+                        "I can filter sensory input when needed"
+                    ]
+                },
+                2: { // C² Emotional
+                    "Emotional Awareness": [
+                        "I can accurately identify my emotions as they arise",
+                        "I understand the full spectrum of my emotional experiences",
+                        "I recognize emotional patterns in myself",
+                        "I am aware of emotions beneath the surface",
+                        "I can distinguish between different emotional states",
+                        "I notice how my emotions change throughout the day",
+                        "I accept all my emotions without judgment"
+                    ],
+                    "Feeling Processing": [
+                        "I allow myself to fully feel my emotions",
+                        "I process difficult emotions in healthy ways",
+                        "I don't suppress or avoid uncomfortable feelings",
+                        "I can move through emotional experiences efficiently",
+                        "I learn from my emotional experiences",
+                        "I release emotions that no longer serve me",
+                        "I understand the messages my emotions convey"
+                    ],
+                    "Energy Management": [
+                        "I am aware of my emotional energy levels",
+                        "I know what drains and restores my emotional energy",
+                        "I protect my emotional energy from negative influences",
+                        "I can raise my emotional vibration intentionally",
+                        "I maintain emotional energy throughout challenges",
+                        "I recognize emotional energy in others",
+                        "I create emotional boundaries when needed"
+                    ],
+                    "Empathic Sensitivity": [
+                        "I can sense the emotions of others accurately",
+                        "I feel compassion for others' emotional experiences",
+                        "I can be present with others' pain without losing myself",
+                        "I understand emotional dynamics in groups",
+                        "I use my empathy to support others effectively",
+                        "I can distinguish my emotions from others'",
+                        "I honor my empathic gifts while maintaining boundaries"
+                    ],
+                    "Mood Regulation": [
+                        "I can shift my mood when needed",
+                        "I don't let external circumstances dictate my mood",
+                        "I recover quickly from emotional setbacks",
+                        "I maintain emotional stability under pressure",
+                        "I have effective strategies for improving my mood",
+                        "I choose my emotional responses consciously",
+                        "I maintain baseline emotional wellbeing"
+                    ],
+                    "Passion Expression": [
+                        "I express my passions freely and authentically",
+                        "I allow myself to feel enthusiasm and excitement",
+                        "I pursue activities that ignite my passion",
+                        "I share my passions with others",
+                        "I maintain passion even in routine activities",
+                        "I know what truly excites and motivates me",
+                        "I channel my passion into productive action"
+                    ],
+                    "Vibrational Attunement": [
+                        "I am sensitive to subtle energy frequencies",
+                        "I can sense the vibrational quality of situations",
+                        "I intentionally raise my vibrational frequency",
+                        "I notice how my vibration affects others",
+                        "I seek out high-vibration experiences and people",
+                        "I can transmute lower energies into higher ones",
+                        "I maintain a high baseline vibration"
+                    ]
+                },
+                3: { // C³ Power
+                    "Personal Power": [
+                        "I feel a strong sense of personal power",
+                        "I claim my right to take up space in the world",
+                        "I feel confident in my abilities and worth",
+                        "I don't give my power away to others",
+                        "I stand firm in my convictions",
+                        "I feel capable of achieving my goals",
+                        "I use my power responsibly and ethically"
+                    ],
+                    "Decision Authority": [
+                        "I make decisions confidently and efficiently",
+                        "I trust my judgment in important matters",
+                        "I don't second-guess my decisions excessively",
+                        "I take responsibility for my choices",
+                        "I can make difficult decisions when necessary",
+                        "I don't need others' approval for my decisions",
+                        "I learn from decisions that don't work out"
+                    ],
+                    "Boundary Strength": [
+                        "I maintain clear and healthy boundaries",
+                        "I say no when needed without guilt",
+                        "I don't allow others to violate my boundaries",
+                        "I communicate my boundaries clearly",
+                        "I respect others' boundaries consistently",
+                        "I adjust my boundaries appropriately in different contexts",
+                        "I enforce consequences when boundaries are crossed"
+                    ],
+                    "Self-Discipline": [
+                        "I follow through on commitments to myself",
+                        "I maintain focus on important tasks",
+                        "I delay gratification for greater rewards",
+                        "I stick to my routines and habits",
+                        "I overcome procrastination effectively",
+                        "I manage my time and energy well",
+                        "I do what needs to be done, even when difficult"
+                    ],
+                    "Confidence Manifestation": [
+                        "I project confidence in my interactions",
+                        "I believe in my ability to succeed",
+                        "I recover quickly from failures or setbacks",
+                        "I don't let fear stop me from taking action",
+                        "I embrace challenges as opportunities",
+                        "I speak up for myself and my ideas",
+                        "I feel worthy of success and recognition"
+                    ],
+                    "Leadership Presence": [
+                        "Others naturally look to me for guidance",
+                        "I inspire others through my example",
+                        "I take initiative without being asked",
+                        "I can mobilize others toward shared goals",
+                        "I remain calm and decisive under pressure",
+                        "I communicate vision clearly and compellingly",
+                        "I develop and empower others' leadership"
+                    ],
+                    "Will Activation": [
+                        "I have a strong and clear sense of will",
+                        "I direct my will toward meaningful goals",
+                        "My will aligns with my higher purpose",
+                        "I can sustain willpower over long periods",
+                        "I use my will to overcome obstacles",
+                        "I don't waste my will on trivial matters",
+                        "I feel the power of divine will working through me"
+                    ]
+                },
+                4: { // C⁴ Love
+                    "Unconditional Love": [
+                        "I love others without conditions or expectations",
+                        "I extend love even to those who have hurt me",
+                        "I feel love as my natural state of being",
+                        "I love myself unconditionally",
+                        "I see the inherent lovability in all people",
+                        "My love is not diminished by others' behavior",
+                        "I radiate love consistently regardless of circumstances"
+                    ],
+                    "Compassion Depth": [
+                        "I feel deep compassion for others' suffering",
+                        "I respond to suffering with care and action",
+                        "I have compassion for my own struggles",
+                        "I understand that everyone is doing their best",
+                        "My compassion extends to all beings",
+                        "I don't judge others for their difficulties",
+                        "Compassion motivates my service to others"
+                    ],
+                    "Relationship Mastery": [
+                        "I create and maintain healthy relationships",
+                        "I communicate openly and honestly in relationships",
+                        "I resolve conflicts constructively",
+                        "I attract relationships that support my growth",
+                        "I invest time and energy in important relationships",
+                        "I release relationships that no longer serve",
+                        "I experience deep intimacy and connection"
+                    ],
+                    "Forgiveness Capacity": [
+                        "I forgive others fully and completely",
+                        "I don't hold onto resentment or grudges",
+                        "I forgive myself for past mistakes",
+                        "I understand forgiveness as liberation",
+                        "I can forgive even severe offenses",
+                        "I release the need for revenge or justice",
+                        "Forgiveness is a regular practice in my life"
+                    ],
+                    "Heart Opening": [
+                        "My heart is open and receptive",
+                        "I allow myself to be vulnerable",
+                        "I feel deeply and fully",
+                        "I let love flow in and out freely",
+                        "I have healed my heart from past wounds",
+                        "I trust enough to keep my heart open",
+                        "I experience heart-centered awareness regularly"
+                    ],
+                    "Service Orientation": [
+                        "I find joy in serving others",
+                        "I look for ways to contribute and help",
+                        "I serve without expectation of return",
+                        "Service feels like a natural expression of love",
+                        "I balance service to others with self-care",
+                        "I see service as a spiritual practice",
+                        "My service makes a meaningful difference"
+                    ],
+                    "Unity Consciousness": [
+                        "I feel connected to all of humanity",
+                        "I recognize myself in others",
+                        "I experience the oneness of life",
+                        "I feel part of something greater than myself",
+                        "Separation from others feels illusory",
+                        "I care about collective wellbeing",
+                        "I work for the good of the whole"
+                    ]
+                },
+                5: { // C⁵ Expression
+                    "Creative Flow": [
+                        "I access creative inspiration easily",
+                        "I allow creativity to flow through me",
+                        "I create regularly as a practice",
+                        "I trust my creative impulses",
+                        "I find creative solutions to problems",
+                        "I express creativity in multiple areas of life",
+                        "I feel connected to infinite creative potential"
+                    ],
+                    "Communication Clarity": [
+                        "I communicate my thoughts clearly",
+                        "I express myself effectively in various formats",
+                        "I listen as well as I speak",
+                        "I adapt my communication to different audiences",
+                        "I say what I mean and mean what I say",
+                        "My communication creates understanding",
+                        "I communicate with intention and purpose"
+                    ],
+                    "Truth Expression": [
+                        "I speak my truth courageously",
+                        "I don't hide or suppress my authentic voice",
+                        "I express truth with compassion",
+                        "I stand by my truth even under pressure",
+                        "I discern when and how to speak truth",
+                        "I live in alignment with my truth",
+                        "My truth-telling serves higher good"
+                    ],
+                    "Artistic Manifestation": [
+                        "I express myself through artistic creation",
+                        "I appreciate and engage with art",
+                        "I bring beauty into the world",
+                        "I use art as a form of communication",
+                        "I find art in everyday experiences",
+                        "I develop my artistic abilities intentionally",
+                        "Art is a meaningful part of my life"
+                    ],
+                    "Authentic Voice": [
+                        "I have discovered my authentic voice",
+                        "I express my unique perspective",
+                        "I don't mimic or copy others' expression",
+                        "My voice reflects who I truly am",
+                        "I continue to develop and refine my voice",
+                        "I use my voice to make a difference",
+                        "My authentic voice resonates with others"
+                    ],
+                    "Innovation Capacity": [
+                        "I generate new and original ideas",
+                        "I see possibilities others miss",
+                        "I improve upon existing systems and methods",
+                        "I embrace unconventional approaches",
+                        "I translate innovation into practical results",
+                        "I create solutions that didn't exist before",
+                        "Innovation is a natural part of how I think"
+                    ],
+                    "Teaching Ability": [
+                        "I can explain complex concepts simply",
+                        "I help others understand and learn",
+                        "I share my knowledge generously",
+                        "I inspire learning in others",
+                        "I adapt my teaching to learner needs",
+                        "I create transformative learning experiences",
+                        "Teaching is a way I serve the world"
+                    ]
+                },
+                6: { // C⁶ Vision
+                    "Intuitive Wisdom": [
+                        "I trust and follow my intuition",
+                        "I receive intuitive guidance regularly",
+                        "I can distinguish intuition from fear or desire",
+                        "My intuition has proven accurate",
+                        "I develop my intuitive abilities intentionally",
+                        "I access deeper knowing beyond logic",
+                        "Intuition guides my important decisions"
+                    ],
+                    "Pattern Recognition": [
+                        "I see patterns others don't notice",
+                        "I understand how different elements connect",
+                        "I recognize cycles and rhythms",
+                        "I can predict outcomes based on patterns",
+                        "I see both details and big picture",
+                        "I identify root causes effectively",
+                        "Pattern recognition guides my understanding"
+                    ],
+                    "Strategic Vision": [
+                        "I think strategically about long-term goals",
+                        "I can envision future possibilities clearly",
+                        "I create effective plans to achieve vision",
+                        "I anticipate obstacles and opportunities",
+                        "I adjust strategy based on new information",
+                        "I inspire others with compelling vision",
+                        "My strategic thinking produces results"
+                    ],
+                    "Discernment Accuracy": [
+                        "I accurately assess people and situations",
+                        "I can sense truth from deception",
+                        "I make wise judgments consistently",
+                        "I see through surface appearances",
+                        "I discern motives and intentions",
+                        "I know when to trust and when to be cautious",
+                        "My discernment protects me and others"
+                    ],
+                    "Future Sight": [
+                        "I can sense what is coming",
+                        "I receive information about the future",
+                        "I prepare for what I sense approaching",
+                        "I understand prophetic patterns",
+                        "I can distinguish genuine foresight from anxiety",
+                        "I share future insights when appropriate",
+                        "I help others prepare for what's coming"
+                    ],
+                    "Systems Understanding": [
+                        "I understand how complex systems work",
+                        "I see the interconnections between parts",
+                        "I can optimize systems effectively",
+                        "I understand cause and effect chains",
+                        "I see leverage points for change",
+                        "I think in terms of whole systems",
+                        "Systems thinking guides my problem-solving"
+                    ],
+                    "Prophetic Insight": [
+                        "I receive insights about divine purposes",
+                        "I understand biblical prophecy deeply",
+                        "I can interpret signs and times",
+                        "I share prophetic understanding with others",
+                        "I apply prophetic insight to current events",
+                        "I steward prophetic gifts responsibly",
+                        "Prophetic awareness shapes my life direction"
+                    ]
+                },
+                7: { // C⁷ Unity
+                    "Divine Connection": [
+                        "I feel deeply connected to God/Divine",
+                        "I experience God's presence regularly",
+                        "My relationship with Divine is intimate and real",
+                        "I hear divine guidance clearly",
+                        "I trust God completely",
+                        "Divine love flows through me",
+                        "My life is centered on divine relationship"
+                    ],
+                    "Purpose Alignment": [
+                        "I know my divine purpose clearly",
+                        "I live in alignment with my purpose",
+                        "My daily activities serve my purpose",
+                        "I feel called to my life's work",
+                        "Purpose gives meaning to everything",
+                        "I fulfill my purpose with joy",
+                        "My purpose aligns with divine plan"
+                    ],
+                    "Transcendence Experience": [
+                        "I have experienced transcendent states",
+                        "I can access higher consciousness",
+                        "I know there is more than physical reality",
+                        "I have touched the infinite",
+                        "Transcendent experiences have transformed me",
+                        "I seek and cultivate transcendence",
+                        "I live with awareness of transcendent reality"
+                    ],
+                    "Cosmic Awareness": [
+                        "I sense my place in the cosmos",
+                        "I understand cosmic purposes and plans",
+                        "I feel connected to universal consciousness",
+                        "I see earthly events from cosmic perspective",
+                        "I understand the great controversy",
+                        "I participate consciously in cosmic drama",
+                        "Cosmic awareness informs my choices"
+                    ],
+                    "Surrender Depth": [
+                        "I have surrendered my life to God",
+                        "I let go of my will for divine will",
+                        "I trust divine guidance completely",
+                        "Surrender brings me freedom, not loss",
+                        "I release what I cannot control",
+                        "I am at peace with not knowing",
+                        "My surrender deepens continually"
+                    ],
+                    "Eternal Perspective": [
+                        "I live with awareness of eternity",
+                        "Earthly concerns are held in eternal context",
+                        "I invest in what lasts forever",
+                        "Death does not frighten me",
+                        "I live as a citizen of heaven",
+                        "Temporal difficulties don't overwhelm me",
+                        "Eternity shapes my priorities"
+                    ],
+                    "Oneness Realization": [
+                        "I experience fundamental unity of all",
+                        "Separation is understood as illusion",
+                        "I am one with all that is",
+                        "I see God in everything",
+                        "Oneness is my lived experience",
+                        "I act from awareness of unity",
+                        "My consciousness rests in oneness"
+                    ]
+                }
+            };
+            
+            // Build questions object
+            for (let level = 1; level <= 7; level++) {
+                questions[level] = [];
+                const levelTemplates = questionTemplates[level];
+                let questionIndex = 0;
+                
+                Object.entries(levelTemplates).forEach(([dimension, dimensionQuestions]) => {
+                    dimensionQuestions.forEach(questionText => {
+                        questionIndex++;
+                        questions[level].push({
+                            id: `c${level}_q${questionIndex}`,
+                            level: level,
+                            dimension: dimension,
+                            text: questionText,
+                            index: questionIndex
+                        });
+                    });
+                });
+            }
+            
+            return questions;
+        }
+        
+        // State Management
+        let state = {
+            currentSection: 1,
+            answers: {},
+            startTime: null,
+            questions: generateQuestions()
+        };
+        
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            checkSavedProgress();
+        });
+        
+        function checkSavedProgress() {
+            const saved = localStorage.getItem('consciousnessScanner');
+            if (saved) {
+                const savedState = JSON.parse(saved);
+                if (Object.keys(savedState.answers).length > 0) {
+                    document.getElementById('resumeBtn').style.display = 'inline-flex';
+                }
+            }
+        }
+        
+        function startAssessment() {
+            state.answers = {};
+            state.startTime = Date.now();
+            state.currentSection = 1;
+            saveProgress();
+            showAssessmentScreen();
+        }
+        
+        function resumeAssessment() {
+            const saved = localStorage.getItem('consciousnessScanner');
+            if (saved) {
+                const savedState = JSON.parse(saved);
+                state.answers = savedState.answers || {};
+                state.currentSection = savedState.currentSection || 1;
+                state.startTime = savedState.startTime || Date.now();
+            }
+            showAssessmentScreen();
+        }
+        
+        function showAssessmentScreen() {
+            document.getElementById('welcomeScreen').classList.add('hidden');
+            document.getElementById('assessmentScreen').classList.remove('hidden');
+            document.getElementById('resultsScreen').classList.add('hidden');
+            
+            renderQuestions();
+            updateProgress();
+            goToSection(state.currentSection);
+        }
+        
+        function renderQuestions() {
+            const container = document.getElementById('questionSections');
+            container.innerHTML = '';
+            
+            for (let level = 1; level <= 7; level++) {
+                const levelData = cLevels[level];
+                const levelQuestions = state.questions[level];
+                
+                const sectionHTML = `
+                    <div class="question-section ${level === state.currentSection ? 'active' : ''}" id="section${level}">
+                        <div class="section-header" data-level="${level}">
+                            <div class="section-level">C${level}</div>
+                            <h2 class="section-name">${levelData.name}</h2>
+                            <p class="section-description">${levelData.description}</p>
+                            <div class="section-progress">
+                                <span id="sectionProgress${level}">0</span>/49 questions answered
+                            </div>
+                        </div>
+                        
+                        <div class="questions-grid">
+                            ${levelQuestions.map(q => renderQuestionCard(q)).join('')}
+                        </div>
+                    </div>
+                `;
+                
+                container.innerHTML += sectionHTML;
+            }
+        }
+        
+        function renderQuestionCard(question) {
+            const answered = state.answers[question.id] !== undefined;
+            const selectedValue = state.answers[question.id];
+            
+            return `
+                <div class="question-card ${answered ? 'answered' : ''}" id="card_${question.id}">
+                    <div class="question-header">
+                        <span class="question-number">Q${question.index}</span>
+                        <span class="question-dimension">${question.dimension}</span>
+                    </div>
+                    <p class="question-text">${question.text}</p>
+                    <div class="rating-scale">
+                        ${[1, 2, 3, 4, 5, 6, 7].map(value => `
+                            <div class="rating-option ${selectedValue === value ? 'selected' : ''}" 
+                                 onclick="selectAnswer('${question.id}', ${value}, ${question.level})">
+                                <span class="rating-value">${value}</span>
+                                <span class="rating-label">${getRatingLabel(value)}</span>
+                            </div>
+                        `).join('')}
+                    </div>
+                </div>
+            `;
+        }
+        
+        function getRatingLabel(value) {
+            const labels = {
+                1: 'Never',
+                2: 'Rarely',
+                3: 'Sometimes',
+                4: 'Often',
+                5: 'Usually',
+                6: 'Almost Always',
+                7: 'Always'
+            };
+            return labels[value];
+        }
+        
+        function selectAnswer(questionId, value, level) {
+            state.answers[questionId] = value;
+            
+            // Update UI
+            const card = document.getElementById(`card_${questionId}`);
+            card.classList.add('answered');
+            
+            const options = card.querySelectorAll('.rating-option');
+            options.forEach((opt, idx) => {
+                opt.classList.toggle('selected', idx + 1 === value);
+            });
+            
+            updateProgress();
+            saveProgress();
+            showSaveIndicator();
+        }
+        
+        function updateProgress() {
+            const totalAnswered = Object.keys(state.answers).length;
+            const totalQuestions = 343;
+            const percent = Math.round((totalAnswered / totalQuestions) * 100);
+            
+            // Update header stats
+            document.getElementById('questionsAnswered').textContent = totalAnswered;
+            document.getElementById('questionsRemaining').textContent = totalQuestions - totalAnswered;
+            
+            // Estimate remaining time
+            const remaining = totalQuestions - totalAnswered;
+            const minutes = Math.ceil(remaining * 0.13); // ~8 seconds per question
+            document.getElementById('estimatedTime').textContent = remaining > 0 ? `~${minutes}min` : 'Done!';
+            
+            // Update progress bar
+            document.getElementById('progressPercent').textContent = `${percent}%`;
+            document.getElementById('progressBar').style.width = `${percent}%`;
+            
+            // Update section progress
+            for (let level = 1; level <= 7; level++) {
+                const levelAnswered = state.questions[level].filter(q => state.answers[q.id] !== undefined).length;
+                const progressEl = document.getElementById(`sectionProgress${level}`);
+                if (progressEl) {
+                    progressEl.textContent = levelAnswered;
+                }
+                
+                // Update section nav button
+                const navBtn = document.querySelector(`.section-btn[data-level="${level}"]`);
+                if (navBtn) {
+                    if (levelAnswered === 49) {
+                        navBtn.classList.add('completed');
+                    } else {
+                        navBtn.classList.remove('completed');
+                    }
+                }
+            }
+            
+            // Check if complete
+            if (totalAnswered === totalQuestions) {
+                document.getElementById('nextBtn').textContent = 'View Results →';
+            }
+        }
+        
+        function goToSection(level) {
+            state.currentSection = level;
+            
+            // Update sections visibility
+            document.querySelectorAll('.question-section').forEach(section => {
+                section.classList.remove('active');
+            });
+            document.getElementById(`section${level}`).classList.add('active');
+            
+            // Update nav buttons
+            document.querySelectorAll('.section-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            document.querySelector(`.section-btn[data-level="${level}"]`).classList.add('active');
+            
+            // Update navigation buttons
+            document.getElementById('prevBtn').disabled = level === 1;
+            
+            const totalAnswered = Object.keys(state.answers).length;
+            if (totalAnswered === 343) {
+                document.getElementById('nextBtn').textContent = 'View Results →';
+            } else if (level === 7) {
+                document.getElementById('nextBtn').textContent = 'Complete Assessment →';
+            } else {
+                document.getElementById('nextBtn').textContent = 'Next Section →';
+            }
+            
+            // Scroll to top
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            
+            saveProgress();
+        }
+        
+        function previousSection() {
+            if (state.currentSection > 1) {
+                goToSection(state.currentSection - 1);
+            }
+        }
+        
+        function nextSection() {
+            const totalAnswered = Object.keys(state.answers).length;
+            
+            if (totalAnswered === 343) {
+                showResults();
+            } else if (state.currentSection < 7) {
+                goToSection(state.currentSection + 1);
+            } else {
+                // On last section but not complete
+                const unanswered = findUnansweredSection();
+                if (unanswered) {
+                    alert(`Please complete all questions. Section C${unanswered} has unanswered questions.`);
+                    goToSection(unanswered);
+                } else {
+                    showResults();
+                }
+            }
+        }
+        
+        function findUnansweredSection() {
+            for (let level = 1; level <= 7; level++) {
+                const levelAnswered = state.questions[level].filter(q => state.answers[q.id] !== undefined).length;
+                if (levelAnswered < 49) {
+                    return level;
+                }
+            }
+            return null;
+        }
+        
+        function showResults() {
+            document.getElementById('welcomeScreen').classList.add('hidden');
+            document.getElementById('assessmentScreen').classList.add('hidden');
+            document.getElementById('resultsScreen').classList.add('active');
+            
+            calculateAndDisplayResults();
+        }
+        
+        function calculateAndDisplayResults() {
+            const scores = {};
+            let totalScore = 0;
+            
+            // Calculate scores per level
+            for (let level = 1; level <= 7; level++) {
+                const levelQuestions = state.questions[level];
+                let levelTotal = 0;
+                
+                levelQuestions.forEach(q => {
+                    const answer = state.answers[q.id] || 0;
+                    levelTotal += answer;
+                });
+                
+                // Convert to percentage (max is 49 questions × 7 = 343 per level)
+                const maxScore = 49 * 7;
+                scores[level] = Math.round((levelTotal / maxScore) * 100);
+                totalScore += levelTotal;
+            }
+            
+            // Overall score
+            const maxTotal = 343 * 7;
+            const overallPercent = Math.round((totalScore / maxTotal) * 100);
+            
+            document.getElementById('overallScore').textContent = `${overallPercent}%`;
+            
+            // Render level breakdown
+            const breakdownContainer = document.getElementById('levelBreakdown');
+            breakdownContainer.innerHTML = '';
+            
+            for (let level = 1; level <= 7; level++) {
+                const levelData = cLevels[level];
+                breakdownContainer.innerHTML += `
+                    <div class="level-result" data-level="${level}">
+                        <div class="level-badge">C${level}</div>
+                        <div class="level-info">
+                            <h3>${levelData.name}</h3>
+                            <p>${levelData.subtitle}</p>
+                        </div>
+                        <div class="level-score">${scores[level]}%</div>
+                    </div>
+                `;
+            }
+            
+            // Create charts
+            createRadarChart(scores);
+            createBarChart(scores);
+            
+            // Save final results
+            localStorage.setItem('consciousnessResults', JSON.stringify({
+                scores: scores,
+                overallScore: overallPercent,
+                completedAt: new Date().toISOString(),
+                answers: state.answers
+            }));
+        }
+        
+        function createRadarChart(scores) {
+            const ctx = document.getElementById('radarChart').getContext('2d');
+            
+            new Chart(ctx, {
+                type: 'radar',
+                data: {
+                    labels: ['C¹ Physical', 'C² Emotional', 'C³ Power', 'C⁴ Love', 'C⁵ Expression', 'C⁶ Vision', 'C⁷ Unity'],
+                    datasets: [{
+                        label: 'Your Profile',
+                        data: [scores[1], scores[2], scores[3], scores[4], scores[5], scores[6], scores[7]],
+                        backgroundColor: 'rgba(241, 196, 15, 0.2)',
+                        borderColor: '#f1c40f',
+                        borderWidth: 2,
+                        pointBackgroundColor: '#f1c40f',
+                        pointBorderColor: '#fff',
+                        pointHoverBackgroundColor: '#fff',
+                        pointHoverBorderColor: '#f1c40f'
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    scales: {
+                        r: {
+                            beginAtZero: true,
+                            max: 100,
+                            ticks: {
+                                stepSize: 20,
+                                color: '#6c6c7c'
+                            },
+                            grid: {
+                                color: 'rgba(255, 255, 255, 0.1)'
+                            },
+                            angleLines: {
+                                color: 'rgba(255, 255, 255, 0.1)'
+                            },
+                            pointLabels: {
+                                color: '#b8b8c8',
+                                font: {
+                                    size: 11
+                                }
+                            }
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            display: false
+                        }
+                    }
+                }
+            });
+        }
+        
+        function createBarChart(scores) {
+            const ctx = document.getElementById('barChart').getContext('2d');
+            
+            new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ['C¹', 'C²', 'C³', 'C⁴', 'C⁵', 'C⁶', 'C⁷'],
+                    datasets: [{
+                        label: 'Activation %',
+                        data: [scores[1], scores[2], scores[3], scores[4], scores[5], scores[6], scores[7]],
+                        backgroundColor: [
+                            '#e74c3c',
+                            '#e67e22',
+                            '#f1c40f',
+                            '#2ecc71',
+                            '#3498db',
+                            '#9b59b6',
+                            '#ffffff'
+                        ],
+                        borderRadius: 8
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            max: 100,
+                            ticks: {
+                                color: '#6c6c7c'
+                            },
+                            grid: {
+                                color: 'rgba(255, 255, 255, 0.1)'
+                            }
+                        },
+                        x: {
+                            ticks: {
+                                color: '#b8b8c8'
+                            },
+                            grid: {
+                                display: false
+                            }
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            display: false
+                        }
+                    }
+                }
+            });
+        }
+        
+        function generatePDF() {
+            const { jsPDF } = window.jspdf;
+            const doc = new jsPDF();
+            
+            // Get results
+            const results = JSON.parse(localStorage.getItem('consciousnessResults'));
+            
+            // Title Page
+            doc.setFillColor(10, 10, 18);
+            doc.rect(0, 0, 210, 297, 'F');
+            
+            doc.setTextColor(241, 196, 15);
+            doc.setFontSize(28);
+            doc.text('7³×7 CONSCIOUSNESS', 105, 50, { align: 'center' });
+            doc.text('SCANNER REPORT', 105, 65, { align: 'center' });
+            
+            doc.setTextColor(255, 255, 255);
+            doc.setFontSize(14);
+            doc.text('Complete 343-Aspect Assessment Results', 105, 85, { align: 'center' });
+            
+            doc.setFontSize(48);
+            doc.setTextColor(241, 196, 15);
+            doc.text(`${results.overallScore}%`, 105, 130, { align: 'center' });
+            
+            doc.setFontSize(12);
+            doc.setTextColor(184, 184, 200);
+            doc.text('Overall Consciousness Activation', 105, 145, { align: 'center' });
+            
+            // Level Scores
+            doc.setFontSize(16);
+            doc.setTextColor(241, 196, 15);
+            doc.text('Consciousness Level Breakdown', 105, 175, { align: 'center' });
+            
+            const levelNames = [
+                'C¹ Physical',
+                'C² Emotional', 
+                'C³ Power',
+                'C⁴ Love',
+                'C⁵ Expression',
+                'C⁶ Vision',
+                'C⁷ Unity'
+            ];
+            
+            const colors = [
+                [231, 76, 60],
+                [230, 126, 34],
+                [241, 196, 15],
+                [46, 204, 113],
+                [52, 152, 219],
+                [155, 89, 182],
+                [255, 255, 255]
+            ];
+            
+            let yPos = 195;
+            for (let i = 1; i <= 7; i++) {
+                const score = results.scores[i];
+                
+                // Level name
+                doc.setTextColor(...colors[i-1]);
+                doc.setFontSize(11);
+                doc.text(levelNames[i-1], 30, yPos);
+                
+                // Score bar background
+                doc.setFillColor(26, 26, 46);
+                doc.roundedRect(80, yPos - 5, 100, 8, 2, 2, 'F');
+                
+                // Score bar fill
+                doc.setFillColor(...colors[i-1]);
+                doc.roundedRect(80, yPos - 5, score, 8, 2, 2, 'F');
+                
+                // Score text
+                doc.setTextColor(255, 255, 255);
+                doc.text(`${score}%`, 185, yPos);
+                
+                yPos += 12;
+            }
+            
+            // Footer
+            doc.setFontSize(10);
+            doc.setTextColor(108, 108, 124);
+            doc.text(`Generated: ${new Date().toLocaleDateString()}`, 105, 280, { align: 'center' });
+            doc.text('sevencubedseven.com | 7³×7 = 2,401 Aspects', 105, 287, { align: 'center' });
+            
+            // Save
+            doc.save('7cubed7-consciousness-report.pdf');
+        }
+        
+        function retakeAssessment() {
+            if (confirm('Are you sure you want to start over? Your current results will be saved.')) {
+                localStorage.removeItem('consciousnessScanner');
+                state.answers = {};
+                state.currentSection = 1;
+                
+                document.getElementById('resultsScreen').classList.remove('active');
+                document.getElementById('welcomeScreen').classList.remove('hidden');
+                document.getElementById('resumeBtn').style.display = 'none';
+            }
+        }
+        
+        function saveProgress() {
+            localStorage.setItem('consciousnessScanner', JSON.stringify({
+                answers: state.answers,
+                currentSection: state.currentSection,
+                startTime: state.startTime
+            }));
+        }
+        
+        function showSaveIndicator() {
+            const indicator = document.getElementById('saveIndicator');
+            indicator.classList.add('show');
+            setTimeout(() => {
+                indicator.classList.remove('show');
+            }, 2000);
+        }
+    </script>
+</body>
+</html>
