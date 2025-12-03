@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://scanner.sevencubedseven.com/sitemap.xml
